@@ -1,0 +1,240 @@
+:root {
+    --primary-color: #646cff;
+    --primary-hover: #535bf2;
+    --bg-color: #f9f9f9;
+    --text-color: #213547;
+    --card-bg: #ffffff;
+    --border-color: #e5e7eb;
+    --error-color: #ef4444;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body{
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  .container{
+    max-width: 800px;
+    margin: 0px auto;
+    padding: 2rem;
+  }
+   h1{
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+   }
+   h2 {
+    margin-bottom: 1rem;
+  }
+
+/* contact form div design */
+  .contact-form {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  label {
+     display:block ;   /* to get label anf form one by one */
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  /* design for forms */
+
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+
+  input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.1);
+  }
+
+
+  /* button */
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--primary-hover);
+  }
+
+
+  /* div for update details */
+  .contacts-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .contact-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+
+  .contact-card h3 {
+    margin-bottom: 0.5rem;
+    padding-right: 100px;
+    color: var(--primary-color);
+  }
+  
+  .contact-info {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-info p {
+    color: #666;
+  }
+  
+  .contact-info span {
+    font-weight: 500;
+    color: var(--text-color);
+  }
+
+
+  .contact-actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .btn-edit, .btn-delete {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  .btn-edit {
+    background-color: #10b981;
+    color: white;
+  }
+  
+  .btn-delete {
+    background-color: var(--error-color);
+    color: white;
+  }
+  
+  .btn-edit:hover, .btn-delete:hover {
+    opacity: 0.8;
+  }
+
+
+  .error {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  
+
+
+
+  /* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+      padding: 1rem;
+  }
+
+  h1 {
+      font-size: 1.75rem;
+  }
+
+  .contact-form {
+      padding: 1rem;
+  }
+
+  .contacts-list {
+      grid-template-columns: 1fr;
+  }
+
+  .contact-actions {
+      position: static;
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+  }
+
+  .btn-primary {
+      font-size: 0.9rem;
+      padding: 0.6rem 1rem;
+  }
+
+  .btn-edit,
+  .btn-delete {
+      font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  .contact-form {
+      padding: 0.75rem;
+  }
+
+  .form-group label {
+      font-size: 0.9rem;
+  }
+
+  input {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+  }
+
+  .contact-card {
+      padding: 1rem;
+  }
+
+  .btn-primary {
+      font-size: 0.8rem;
+      padding: 0.5rem 0.8rem;
+  }
+
+  .btn-edit,
+  .btn-delete {
+      font-size: 0.75rem;
+      padding: 0.4rem;
+  }
+}
