@@ -30,6 +30,7 @@ function readAll(){
         <div class="contact-info">
            <p><strong>ID:</strong> <span>${contact.id}</span></p>
            <p><strong>Email:</strong> <span>${contact.email}</span></p>
+           <p><strong>Phone Number::</strong> <span>${contact.number}</span></p>
         </div>
         <div class="contact-actions">
            <button class="btn-edit" onclick="editContact(${index})">Edit</button>
@@ -45,6 +46,17 @@ function readAll(){
     });
 
 }
+
+
+// Function to generate a unique ID ie, automatically generating id.
+function generateUniqueId() {
+    return `id-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+}
+
+
+
+
+
 
 
 // we want to check the email is in correct format
@@ -65,11 +77,16 @@ function add(){
     //prevent the form from reloading the page.ie, default action of form submission
     event.preventDefault();
 
-    //first we want to take values from form fields
+   
 
-    const id=document.getElementById('contactId').value;
+    //generate a unique id
+    const id = generateUniqueId();
+     //first we want to take values from form fields
+
+    
     const name=document.getElementById('contactName').value;
     const email=document.getElementById('contactEmail').value;
+    const number=document.getElementById('contactNumber').value;
 
     // then we want to validate email. if it is not valid give an alert and stop the function
 
@@ -82,10 +99,10 @@ function add(){
     // the add details should be add to contacts
     // first check all fields are filled
 
-    if(id && name && email){
+    if(id && name && email && number){
         // create a new object to add new contact details
 
-        const newContact={id,name,email};
+        const newContact={id,name,email,number};
         //push this into contact array
         contacts.push(newContact);
         //update the contact llist display
@@ -101,9 +118,10 @@ function add(){
 function clearForm(){
 
     //clear all fields
-    document.getElementById('contactId').value='';
+   
     document.getElementById('contactName').value='';
     document.getElementById('contactEmail').value='';
+    document.getElementById('contactNumber').value='';
 
 }
 
@@ -127,11 +145,12 @@ function editContact(index){
 
     const contact= contacts[index];
 
-    //set current id,name and email in form fields
+    //set current name , email and phn no in form fields
 
-    document.getElementById('contactId').value=contact.id;
+   
     document.getElementById('contactName').value=contact.name;
     document.getElementById('contactEmail').value=contact.email;
+    document.getElementById('contactNumber').value=contact.number;
 
     // add contact then changes to update contact
     //first access that button and assign to a variable
@@ -139,7 +158,7 @@ function editContact(index){
     const addButton=document.querySelector('.btn-primary');
     //change text in button
 
-    addButton.textContent='Update Contact';
+    addButton.textContent='Update';
     // then change its onclick event to cal update contact instead of add
 
     addButton.onclick=function(){
@@ -157,9 +176,10 @@ function updateContact(index){
 
     event.preventDefault(); // Ensure form does not submit on update
 
-    const id=document.getElementById('contactId').value;
+   
     const name=document.getElementById('contactName').value;
     const email=document.getElementById('contactEmail').value;
+    const number=document.getElementById('contactNumber').value;
 
     //validate email
 
@@ -170,17 +190,21 @@ function updateContact(index){
 
     //then first check all fields are filled and then update to contact
 
-    if(id && name && email){
+    if( name && email && number){
 
         //update that specified index contact in the contacts array
-        contacts[index]= {id, name,email};
+
+        contacts[index].name=name;
+        contacts[index].email=email;
+        contacts[index].number=number;
+        // contacts[index]= {id, name,email};
         readAll();
         clearForm();
 
         // after click update button the button again changes to add 
 
         const addButton=document.querySelector('.btn-primary');
-        addButton.textContent='Add Contact';
+        addButton.textContent='Submit';
         //resets its original onclick event add
         addButton.onclick=add;
 

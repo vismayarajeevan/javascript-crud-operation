@@ -12,16 +12,16 @@
 <body onload="readAll()">
 
     <div class="container">
-        <h1>Contact Manger</h1>
+        <h1>Enter Details</h1>
 
         <form class="contact-form" id="contactForm">
             <!-- for creation -->
 
              <!-- form for id -->
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="contactId">ID</label>
                 <input type="text" id="contactId" placeholder="Enter ID" required />
-            </div>
+            </div> -->
 
             <!-- form for name -->
             <div class="form-group">
@@ -32,24 +32,27 @@
               <!-- form for email -->
               <div class="form-group">
                 <label for="contactEmail">Email</label>
-                <input
-                  type="email"
-                  id="contactEmail"
-                  placeholder="Enter email"
-                  required
-                />
+                <input type="email" id="contactEmail" placeholder="Enter email" required/>
+              </div>
+
+              <!-- form for phone number -->
+
+              <div class="form-group">
+                <label for="contactNumber">Phone Number</label>
+                <input type="number"
+                  id="contactNumber" placeholder="Enter phone number" required/>
               </div>
                 
 
 
-                <button type="submit" onclick="add()" class="btn-primary">Add Contact</button>   
+                <button type="submit" onclick="add()" class="btn-primary">Submit</button>   
             </form>
 
 
             <!-- for edit and delete details -->
 
             <div class="contacts-container">
-                <h2>Contacts</h2>
+                <h2>Entered Details</h2>
                 <!-- create an empty div to update details -->
                 <div id="contactsList" class="contacts-list"></div>
             </div>
